@@ -38,6 +38,17 @@ class AddComment extends Component {
     }
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.asinFromSelection !== this.props.asinFromSelection) {
+      this.setState({
+        review: {
+          ...this.state.review,
+          elementId: this.props.asinFromSelection
+        }
+      });
+    }
+  }
+
   render() {
     return (
       <>

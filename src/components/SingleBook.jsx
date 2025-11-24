@@ -3,7 +3,9 @@ import { Component } from 'react';
 
 class SingleBook extends Component {
   checkSelected = () => {
-    this.props.isSelected ? 'border border-1 border-primary' : '';
+    return this.props.isSelected === true && this.props.selectedAsin === this.props.book.asin
+      ? 'border border-2 border-danger'
+      : '';
   };
 
   render() {
@@ -15,7 +17,7 @@ class SingleBook extends Component {
           onClick={() =>
             this.props.changeSelectionState(true, this.props.book.asin)
           }
-          className={this.checkSelected(true)}
+          className={this.checkSelected()}
         />
         <Card.Body>
           <Card.Title>{this.props.book.title}</Card.Title>

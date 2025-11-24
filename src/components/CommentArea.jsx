@@ -44,9 +44,9 @@ class CommentArea extends Component {
       });
   };
 
-  componentDidMount() {
-    this.getComments(this.props.asinFromSelection);
-  }
+  // componentDidMount() {
+  //   this.getComments(this.props.asinFromSelection);
+  // }
 
   componentDidUpdate(prevProps) {
     if (prevProps.asinFromSelection !== this.props.asinFromSelection) {
@@ -63,18 +63,18 @@ class CommentArea extends Component {
             {this.state.loading && <Spinner animation="grow" />}
           </Col>
         </Row>
-        { (this.state.asinFromSelection !== '') &&
-        <>
-          <Row>
-            <Col>
-              <CommentsList comments={this.state.comments}></CommentsList>
-            </Col>
-          </Row>
-          <Row>
-            <AddComment asinFromSelection={this.props.asinFromSelection} />
-          </Row>
-        </>
-  }
+        {this.state.asinFromSelection !== '' && (
+          <>
+            <Row>
+              <Col>
+                <CommentsList comments={this.state.comments}></CommentsList>
+              </Col>
+            </Row>
+            <Row>
+              <AddComment asinFromSelection={this.props.asinFromSelection} />
+            </Row>
+          </>
+        )}
       </Container>
     );
   }
