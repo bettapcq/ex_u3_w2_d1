@@ -63,14 +63,18 @@ class CommentArea extends Component {
             {this.state.loading && <Spinner animation="grow" />}
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <CommentsList comments={this.state.comments}></CommentsList>
-          </Col>
-        </Row>
-        <Row>
-          <AddComment asin={this.props.asinFromSelection} />
-        </Row>
+        { (this.state.asinFromSelection !== '') &&
+        <>
+          <Row>
+            <Col>
+              <CommentsList comments={this.state.comments}></CommentsList>
+            </Col>
+          </Row>
+          <Row>
+            <AddComment asinFromSelection={this.props.asinFromSelection} />
+          </Row>
+        </>
+  }
       </Container>
     );
   }

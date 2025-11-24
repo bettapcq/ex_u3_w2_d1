@@ -7,7 +7,7 @@ class AddComment extends Component {
     review: {
       comment: '',
       rate: '5',
-      elementId: this.props.asin
+      elementId: this.props.asinFromSelection
     }
   };
 
@@ -37,7 +37,6 @@ class AddComment extends Component {
       alert('error data saving', e);
     }
   };
-
 
   render() {
     return (
